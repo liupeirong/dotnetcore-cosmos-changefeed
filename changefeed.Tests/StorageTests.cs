@@ -6,7 +6,7 @@ namespace CosmosSim.Changefeed.Tests
 {
     public class Storage_Tests
     {
-        private ADLSGen2Storage _sut; //System under test
+        private readonly ADLSGen2Storage _sut; //System under test
 
         public Storage_Tests()
         {

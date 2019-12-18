@@ -10,8 +10,8 @@ namespace CosmosSim.Changefeed.Tests
 {
     public class ChangefeedRepository_Tests
     {
-        private Mock<IStorage> _mockStorage;
-        private CosmosChangefeedRepository _sut; //System under test
+        private readonly Mock<IStorage> _mockStorage;
+        private readonly CosmosChangefeedRepository _sut; //System under test
 
         public ChangefeedRepository_Tests()
         {
