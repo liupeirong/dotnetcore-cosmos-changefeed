@@ -8,13 +8,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: build datagen
-      run: cd datagen
-      shell: bash
     - uses: actions/checkout@v1
-    - name: Setup .NET Core
+    - name: Setup .NET Core 3.1
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.0
-    - name: Build with dotnet
+        dotnet-version: 3.1.100-preview1-014459  
+    - name: Build datagen
+      working-directory: ./datagen
       run: dotnet build --configuration Release
+    - name: Test datagen
+      working-directory: ./datagen.Tests
+      run: dotnet test
+    - name: Build changefeed
+      working-directory: ./changefeed
+      run: dotnet build --configuration Release
+    - name: Test changefeed
+      working-directory: ./changefeed.Tests
+      run: dotnet test
